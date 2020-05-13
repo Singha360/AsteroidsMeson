@@ -1,4 +1,4 @@
-project('asteroids', 'cpp', default_options : ['cpp_std=c++17'], version: '0.0.1', license: 'unlicensed')
+project('asteroids', 'cpp', default_options : ['cpp_std=c++17','buildtype=release','warning_level=0'], version: '0.0.1', license: 'unlicensed')
 incdir = include_directories('../include')
 thread = dependency('threads')
 
@@ -7,7 +7,7 @@ if build_machine.system() == 'linux'
     gl = dependency('gl')
     png = dependency('libpng')
     deps = [x11, gl, png, thread]
-    linkargs = '-lstdc++fs'
+    linkargs = ['-lstdc++fs']
 else
     deps = [thread]
     linkargs = []
